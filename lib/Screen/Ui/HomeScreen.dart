@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:panda_store/Constant/AppColor.dart';
@@ -266,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         )
                                       ),
                                       child: Text("${snapshot.data[index]['name']}" ,
-                                        style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black87),))
+                                        style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black87),).tr())
                                 ],
                               ),
                             ),
@@ -283,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Padding(
               padding: const EdgeInsets.only(left: 19),
-              child: Text("Recommended",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20)),
+              child: Text("Recommended",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20)).tr(),
             ),
                 SizedBox(height: 5,),
 
@@ -332,7 +333,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     children: [
 
 
-                                      Text("${snapshot.data[index]['category']['name']}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                                      Text("${snapshot.data[index]['category']['name']}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),).tr(),
 
                                       Text("${snapshot.data[index]['name']}"),
 

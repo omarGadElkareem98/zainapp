@@ -1,10 +1,13 @@
 
   import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:panda_store/Constant/AppColor.dart';
+import 'package:panda_store/Screen/Ui/HomeScreen.dart';
+import 'package:panda_store/Screen/Ui/MainScreen.dart';
 import 'package:panda_store/Screen/Ui/SplachScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,7 +29,9 @@ class ProfileScreen extends StatefulWidget {
         appBar: AppBar(
           elevation: 0,
           title: TextButton(onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return MainScreen();
+            }));
           }, child: Text('Back',style: TextStyle(color: Colors.indigo,fontSize: 22,fontStyle: FontStyle.italic),),),
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -62,9 +67,9 @@ class ProfileScreen extends StatefulWidget {
                                   SizedBox(height: 20,),
                                   Divider(thickness: 1,),
                                   SizedBox(height: 40,),
-                                  Text('Contact Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                                  Text('Contact Info',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),).tr(),
                                   SizedBox(height: 20,),
-                                  Text("ُُEmail: ${user['email']}",style: TextStyle(color: Colors.black,fontSize: 18),),
+                                  Text("ُُEmail: ${user['email']}",style: TextStyle(color: Colors.black,fontSize: 18),).tr(),
                                   SizedBox(height: 15,),
                                    Text('location: ${user['location']}',style: TextStyle(color: Colors.black,fontSize: 18),),
 
@@ -93,7 +98,7 @@ class ProfileScreen extends StatefulWidget {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            Text('Logout',style: TextStyle(color: Colors.white,fontSize: 18),),
+                                            Text('Logout',style: TextStyle(color: Colors.white,fontSize: 18),).tr(),
                                             SizedBox(width: 10,),
                                             Icon(Icons.logout_rounded,color: Colors.white,)
                                           ],

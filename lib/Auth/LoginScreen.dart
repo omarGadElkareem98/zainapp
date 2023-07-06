@@ -96,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: 30,),
                       TextFormField(
                         controller: _emailController,
+                        style: TextStyle(color: Colors.white),
                         validator: (val){
                           if(val!.isEmpty){
                             return 'Enter Email';
@@ -125,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: 25,),
                       TextFormField(
                         controller: _password,
+                        style: TextStyle(color: Colors.white),
                         validator: (val){
                           if(val!.isEmpty){
                             return 'password is empty';

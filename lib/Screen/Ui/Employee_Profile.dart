@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -97,7 +98,7 @@ class _employeeProfile extends State<employeeProfile> {
                               SizedBox(height: 20,),
                               Divider(thickness: 1,),
                               SizedBox(height: 40,),
-                              Center(child: Text('تواصل مع الفني',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
+                              Center(child: Text('تواصل مع الفني',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),).tr()),
                               SizedBox(height: 20,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,

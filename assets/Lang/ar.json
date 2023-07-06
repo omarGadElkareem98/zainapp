@@ -1,5 +1,28 @@
 
 {
-  "Login"  : " تسجيل الدحول "
+  "Login"  : " تسجيل الدحول ",
+  "Sign Up" : "تسجيل",
+  "More" : "المزيد",
+  "Bookings" :  "حجوزاتي",
+  "Favorites" : "مفضلتي",
+  "Profile" : "حسابي",
+  "Recomended" : "اختارنالك",
+  "Forget your password" : "نسيت كلمه السر ",
+  "email" : "بريدك",
+  "name" : "اسمك",
+  "Access Current Location" : "حدد موقعك",
+  "password" : "كلمه السر",
+  "Already have an account" : "لديك حساب بالفعل",
+  "Login" : "تسجيل الدخول",
+  "Email" : "بريدك",
+  "Password" : "كلمه السر",
+  "Forgot Password" :  "نسيت كلمه السر ",
+  "Do you have account" : "حساب جديد",
+  "Conditions & Terms" : " سياسه الخصوصيه ",
+  "Change language" : "اختر اللغه",
+  "About Zainlak" : "عن تطبيقنا",
+  "LogOut" : "تسجيل الخروج",
+  "Contact Info" : "معلوماتي",
+  "Change Language" : "غير لغتك"
 
 }

@@ -16,7 +16,9 @@ class Languages extends StatefulWidget {
     Widget build(BuildContext context) {
       return SafeArea(
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            title: Text('Change Language').tr(),
+          ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -28,6 +30,7 @@ class Languages extends StatefulWidget {
                   minimumSize: Size(double.infinity, 50,),
                   backgroundColor: AppColor.AppColors
                 ), child: Text("En")),
+                SizedBox(height: 15,),
                 ElevatedButton(onPressed: ()async{
                   await context.setLocale(Locale('ar', ''));
                 }, style: ElevatedButton.styleFrom(

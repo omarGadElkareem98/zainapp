@@ -1,5 +1,6 @@
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:panda_store/Constant/AppColor.dart';
@@ -32,19 +33,19 @@ class _MainScreenState extends State<MainScreen> {
 
   List items = [
     {
-      'name':'More',
+      'name':'More'.tr(),
       'icon':Icon(Icons.more_horiz)
     },
     {
-      'name':'Bookings',
+      'name':'Bookings'.tr(),
       'icon':Icon(Icons.book_outlined)
     },
     {
-      'name':'Favorites',
+      'name':'Favorites'.tr(),
       'icon':Icon(Icons.favorite_outline)
     },
     {
-      'name':'Profile',
+      'name':'Profile'.tr(),
       'icon':Icon(Icons.person_outline)
     },
 
@@ -83,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               items[index]['icon'],
-              Text(items[index]['name'])
+              Text(items[index]['name']).tr()
             ],
           );
       },

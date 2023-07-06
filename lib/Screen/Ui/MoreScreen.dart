@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:panda_store/Constant/AppColor.dart';
@@ -24,25 +25,25 @@ class _MoreSscreenState extends State<MoreSscreen> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
             children: [
-             ItemWidget(icondata: Icons.privacy_tip, text: 'Conditions & Terms', onTap: (){
+             ItemWidget(icondata: Icons.privacy_tip, text: 'Conditions & Terms'.tr(), onTap: (){
                Navigator.push(context, MaterialPageRoute(builder: (context){
                  return Terms();
                }));
              }),
               SizedBox(height: 12,),
-              ItemWidget(icondata: Icons.language, text: 'Change language', onTap: (){
+              ItemWidget(icondata: Icons.language, text: 'Change language'.tr(), onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Languages();
                 }));
               }),
               SizedBox(height: 12,),
-              ItemWidget(icondata: Icons.question_mark, text: 'About Zainlak', onTap: (){
+              ItemWidget(icondata: Icons.question_mark, text: 'About Zainlak'.tr(), onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return About();
                 }));
               }),
               SizedBox(height: 12,),
-              ItemWidget(icondata: Icons.logout, text: 'LogOut', onTap: ()async{
+              ItemWidget(icondata: Icons.logout, text: 'LogOut'.tr(), onTap: ()async{
                 SharedPreferences shared = await SharedPreferences.getInstance();
                 await shared.remove('token');
                 Navigator.of(context).pushReplacement(

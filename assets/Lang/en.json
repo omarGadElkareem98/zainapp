@@ -1,6 +1,9 @@
 
 {
-  "Login"  :" Login "
+  "سباك": "Plumber",
+  "كهربائي" : "electrician",
+  "فنى تكيف" : "Air conditioning technician",
+  "تواصل مع الفني": "Contact Me"
 
 
 }
