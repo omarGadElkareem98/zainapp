@@ -60,7 +60,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                       itemCount: rss.data.length,
                                       itemBuilder: (context , index){
                                         return Padding(
-                                          padding: const EdgeInsets.only(left: 8.0),
+                                          padding: const EdgeInsets.only(left: 8.0,top: 12),
                                           child: Container(
                                             decoration: BoxDecoration(
                                                 color: Colors.black12,

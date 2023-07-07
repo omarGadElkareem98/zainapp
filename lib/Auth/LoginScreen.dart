@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:panda_store/Auth/ForgtPassword.dart';
 import 'package:panda_store/Auth/RegisterScreen.dart';
 import 'package:panda_store/Constant/AppColor.dart';
@@ -25,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _password = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
 
   GlobalKey <FormState> _formKey = GlobalKey();
 
@@ -40,7 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
     try{
       String email = _emailController.text;
       String password = _password.text;
-      await UserService.login(email, password);
+     String phone=_phoneController.text;
+    await UserService.login(email, password);
 
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => MainScreen())
@@ -79,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
         body: Stack(
           children: [
-            Image.network("https://thumbs.dreamstime.com/b/outils-de-g%C3%A9n%C3%A9ration-au-fond-plancher-ciment-grayblack-avec-le-concept-d-entretien-r%C3%A9paration-du-copier-spacehome-r%C3%A9novation-208702230.jpg",fit: BoxFit.cover,height: double.infinity,),
+
 
             Padding(
               padding: const EdgeInsets.only(top: 100,left: 20,right: 20),
@@ -91,59 +94,56 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     children: [
 
-                      Center(child: Text('Zainlak',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.white),)),
-                      Center(child: Text("خدمات بيتك في ايدك",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)),
+                      Center(child: Text('Zainlak',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: AppColor.AppColors),)),
+                      Center(child: Text("خدمات بيتك في ايدك",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),)),
                       SizedBox(height: 30,),
                       TextFormField(
-                        controller: _emailController,
-                        style: TextStyle(color: Colors.white),
-                        validator: (val){
-                          if(val!.isEmpty){
-                            return 'Enter Email';
+                        validator: (value){
+                          if(value!.isEmpty){
+                            return ' Enter your name';
                           }
-                        },
+                        } ,
+                        controller: _emailController,
+                        style: TextStyle(color: AppColor.AppColors),
                         decoration: InputDecoration(
-                            hintText: 'Email',
-                            hintStyle: TextStyle(color: Colors.white),
-                            labelText: "Email",
-                            labelStyle: TextStyle(color: Colors.white),
-                            border: OutlineInputBorder(
+                            hintText: 'Email'.tr(),
+                            hintStyle: TextStyle(color: AppColor.AppColors),
 
-                            ),
+                            labelStyle: TextStyle(color: AppColor.AppColors),
+                            labelText: 'email'.tr(),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(18),
-                                borderSide: BorderSide(
-                                    color: Colors.white
-                                )
-                            )
-
+                                borderSide: BorderSide(color: AppColor.AppColors)
+                            ),
+                          border: OutlineInputBorder()
                         ),
-
+                        keyboardType: TextInputType.emailAddress,
 
 
 
                       ),
+
                       SizedBox(height: 25,),
                       TextFormField(
                         controller: _password,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColor.AppColors),
                         validator: (val){
                           if(val!.isEmpty){
                             return 'password is empty';
                           }
                         },
                         decoration: InputDecoration(
-                            hintText: 'password',
-                            hintStyle: TextStyle(color: Colors.white),
-                            labelText: "Password",
-                            labelStyle: TextStyle(color: Colors.white),
+                            hintText: 'password'.tr(),
+                            hintStyle: TextStyle(color: AppColor.AppColors),
+                            labelText: "Password".tr(),
+                            labelStyle: TextStyle(color: AppColor.AppColors),
 
 
                             border: OutlineInputBorder(
 
                             ),
                             focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: AppColor.AppColors),
                                 borderRadius: BorderRadius.circular(18)
                             )
                         ),
@@ -157,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(context, MaterialPageRoute(builder: (_){
                           return ForgotPassword();
                         }));
-                      }, child: Text('Forget Password',style: TextStyle(color: Colors.white),)),
+                      }, child: Text('Forget Password',style: TextStyle(color: AppColor.AppColors),).tr()),
                       SizedBox(height: 15,),
                       Container(
                         width: double.infinity,
@@ -170,9 +170,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text('Login',style:TextStyle(color: AppColor.AppColors,fontSize: 20) ,).tr()
+                            child: Text('Login',style:TextStyle(color: Colors.white,fontSize: 20) ,).tr()
                           ),
-                          color: Colors.white,
+                          color: AppColor.AppColors,
 
 
                         ),
@@ -180,12 +180,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       Row(
                         children: [
-                          TextButton(onPressed: (){}, child: Text('Do you have account ',style: TextStyle(color: Colors.white),)),
-                          TextButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (_){
-                              return RegisterScreen();
-                            }));
-                          }, child: Text('Sign Up',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),) )
+
+                          Expanded(
+                            child: TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_){
+                                return RegisterScreen();
+                              }));
+                            }, child: Text('Sign Up',style: TextStyle(color: AppColor.AppColors,fontWeight: FontWeight.bold,fontSize: 15),).tr() ),
+                          )
                         ],
                       ),
 

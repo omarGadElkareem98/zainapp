@@ -23,6 +23,17 @@
   "About Zainlak" : "عن تطبيقنا",
   "LogOut" : "تسجيل الخروج",
   "Contact Info" : "معلوماتي",
-  "Change Language" : "غير لغتك"
+  "Change Language" : "غير لغتك",
+  "Already have an account " : "لديك بالفعل حساب ",
+  "login" : "سجل دخولك",
+  "Access Current Location" : "تحديد موقعك",
+  "sign up" : "تسجيل",
+  "password" : "كلمه السر",
+  "email" : "حسابك",
+  "name" : "اسمك",
+  "Forget Password" : "نسيت كلمه السر ",
+  "Sign Up" : "انشئ حساب جديد",
+  "Don\\'t  have an account " : "ليس لديك حساب "
+
 
 }

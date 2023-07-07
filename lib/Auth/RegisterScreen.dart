@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,10 +49,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
      try{
       Map<String,dynamic> data = await UserService.register(
           name: _nameController.text,
-          email: _emailController.text,
+
           password: _password.text,
           location: locationData,
-        phone:_phoneController.text
+        phone:_phoneController.text,
+          email: _emailController.text
       );
 
 
@@ -74,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: Stack(
 
           children: [
-            Image.network("https://thumbs.dreamstime.com/b/outils-de-g%C3%A9n%C3%A9ration-au-fond-plancher-ciment-grayblack-avec-le-concept-d-entretien-r%C3%A9paration-du-copier-spacehome-r%C3%A9novation-208702230.jpg",fit: BoxFit.cover,height: double.infinity,),
+
             Padding(
               padding: const EdgeInsets.only(top: 20,left: 20,right: 20),
               child: SingleChildScrollView(
@@ -110,26 +112,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       SizedBox(height: 30,),
                       TextFormField(
-                    style: TextStyle(color: Colors.white),
-
-                        validator: (val){
-                          if(val!.isEmpty){
-                            return 'Enter your email';
+                        validator: (value){
+                          if(value!.isEmpty){
+                            return ' Enter your name';
                           }
-                        },
+                        } ,
                         controller: _emailController,
+                        style: TextStyle(color: AppColor.AppColors),
                         decoration: InputDecoration(
-                            hintText: 'email',
+                            hintText: 'email'.tr(),
+                            hintStyle: TextStyle(color: AppColor.AppColors),
 
-                            hintStyle: TextStyle(color: Colors.white),
-                            labelText: 'email',
-                            labelStyle: TextStyle(color: Colors.white),
+                            labelStyle: TextStyle(color: AppColor.AppColors),
+                            labelText: 'email'.tr(),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              borderSide: BorderSide(color: Colors.white)
+                                borderRadius: BorderRadius.circular(18),
+                                borderSide: BorderSide(color: AppColor.AppColors)
                             )
                         ),
                         keyboardType: TextInputType.emailAddress,
+
 
 
                       ),
@@ -141,16 +143,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         } ,
                         controller: _nameController,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColor.AppColors),
                         decoration: InputDecoration(
-                            hintText: 'name',
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintText: 'name'.tr(),
+                            hintStyle: TextStyle(color: AppColor.AppColors),
 
-                            labelStyle: TextStyle(color: Colors.white),
-                            labelText: 'name',
+                            labelStyle: TextStyle(color: AppColor.AppColors),
+                            labelText: 'name'.tr(),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(18),
-                                borderSide: BorderSide(color: Colors.white)
+                                borderSide: BorderSide(color: AppColor.AppColors)
                             )
                         ),
                         keyboardType: TextInputType.text,
@@ -184,13 +186,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             locationData = "${placemarks[0].street} - ${placemarks[0].locality} - ${placemarks[0].administrativeArea} - ${placemarks[0].country}";
                           });
                         },
-                        child: Text('Access Current Location',style: TextStyle(color: Colors.white,fontSize: 20),),
+                        child: Text('Access Current Location',style: TextStyle(color: AppColor.AppColors,fontSize: 20),).tr(),
                       ),
                       SizedBox(height: 15,),
-                      Text(locationData,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                      Text(locationData,style: TextStyle(color: AppColor.AppColors,fontWeight: FontWeight.bold,fontSize: 18),),
                       SizedBox(height: 15,),
                       TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColor.AppColors),
                         validator: (val){
                           if(val!.isEmpty){
                             return ' enter your pass';
@@ -199,10 +201,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: _password,
 
                         decoration: InputDecoration(
-                            hintText: 'password',
-                            hintStyle: TextStyle(color: Colors.white),
-                            labelText: 'password',
-                          labelStyle: TextStyle(color: Colors.white)
+                            hintText: 'password'.tr(),
+                            hintStyle: TextStyle(color: AppColor.AppColors),
+                            labelText: 'password'.tr(),
+                          labelStyle: TextStyle(color: AppColor.AppColors),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                            borderSide: BorderSide(color: AppColor.AppColors)
+                          )
 
 
                         ),
@@ -236,9 +242,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text('sign up',style:TextStyle(color: AppColor.AppColors,fontSize: 20) ,),
+                            child: Text('sign up',style:TextStyle(color: Colors.white,fontSize: 20) ,).tr(),
                           ),
-                          color: Colors.white,
+                          color: AppColor.AppColors,
 
 
                         ),
@@ -246,12 +252,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       Row(
                         children: [
-                          TextButton(onPressed: (){}, child: Text('Already have an account ',style: TextStyle(color: Colors.white),)),
+                          TextButton(onPressed: (){}, child: Text('Already have an account ',style: TextStyle(color: Colors.black),).tr()),
                           TextButton(onPressed: (){
                             Navigator.push(context, MaterialPageRoute(builder: (_){
                               return LoginScreen();
                             }));
-                          }, child: Text('login',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),) )
+                          }, child: Text('login',style: TextStyle(color: AppColor.AppColors,fontWeight: FontWeight.bold,fontSize: 20),).tr() )
                         ],
                       ),
 
