@@ -191,6 +191,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(height: 15,),
                       Text(locationData,style: TextStyle(color: AppColor.AppColors,fontWeight: FontWeight.bold,fontSize: 18),),
                       SizedBox(height: 15,),
+
                       TextFormField(
                         style: TextStyle(color: AppColor.AppColors),
                         validator: (val){

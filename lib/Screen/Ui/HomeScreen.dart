@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:panda_store/Constant/AppColor.dart';
 import 'package:panda_store/Screen/Ui/Employee_Profile.dart';
+import 'package:panda_store/Screen/Ui/Notification_Screen.dart';
 import 'package:panda_store/Screen/Ui/ProfileScreen.dart';
 import 'package:panda_store/Services/category.dart';
 import 'package:panda_store/Services/popularTechnician.dart';
@@ -125,7 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           SizedBox(width: 8.0,),
-                          Icon(Icons.notifications_outlined,color: Colors.white,),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return NotificationsScreen();
+                              }));
+                            },
+                              child: Icon(Icons.notifications_outlined,color: Colors.white,)),
                         ],
                       ),
                     ),
